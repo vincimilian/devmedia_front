@@ -51,7 +51,7 @@ const Login = () => {
         <div className="login-container">
             <div className="login-card card">
                 <div className="login-header">
-                    <h1 className="login-title">DevMedia</h1>
+                    <h1 className="login-title">GitProj</h1>
                     <p className="login-subtitle">Rede Social para Desenvolvedores</p>
                 </div>
 
