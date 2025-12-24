@@ -20,7 +20,8 @@ const Profile = () => {
     const [formData, setFormData] = useState({
         displayName: '',
         bio: '',
-        skills: [], // Changed from '' to []
+        avatar: '',
+        skills: '', // String, not array
         github: '',
         linkedin: '',
         website: ''
@@ -42,6 +43,7 @@ const Profile = () => {
             setFormData({
                 displayName: data.displayName || '',
                 bio: data.bio || '',
+                avatar: data.avatar || '',
                 skills: data.skills?.join(', ') || '',
                 github: data.github || '',
                 linkedin: data.linkedin || '',
@@ -68,6 +70,7 @@ const Profile = () => {
         }
     };
 
+
     const handleSubmit = async (e) => {
         e.preventDefault();
 
@@ -79,6 +82,7 @@ const Profile = () => {
                 headers: getAuthHeaders(),
                 body: JSON.stringify({
                     ...formData,
+                    avatar: profile?.avatar || '', // Incluir o avatar do state
                     skills: skillsArray
                 })
             });
@@ -125,6 +129,7 @@ const Profile = () => {
                                     currentAvatar={profile?.avatar}
                                     onUploadSuccess={(url) => {
                                         setProfile({ ...profile, avatar: url });
+                                        setFormData({ ...formData, avatar: url });
                                     }}
                                 />
                             ) : (
