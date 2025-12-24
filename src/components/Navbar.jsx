@@ -10,15 +10,29 @@ const Navbar = () => {
     const navigate = useNavigate();
     const [unreadCount, setUnreadCount] = useState(0);
     const [showNotifications, setShowNotifications] = useState(false);
+    const [userProfile, setUserProfile] = useState(null);
 
     useEffect(() => {
         if (currentUser) {
             fetchUnreadCount();
+            fetchUserProfile();
             // Atualizar a cada 30 segundos
             const interval = setInterval(fetchUnreadCount, 30000);
             return () => clearInterval(interval);
         }
     }, [currentUser]);
+
+    const fetchUserProfile = async () => {
+        try {
+            const response = await fetch(`${API_URL}/auth/me`, {
+                headers: getAuthHeaders()
+            });
+            const data = await response.json();
+            setUserProfile(data);
+        } catch (error) {
+            console.error('Erro ao buscar perfil:', error);
+        }
+    };
 
     const fetchUnreadCount = async () => {
         try {
@@ -96,7 +110,7 @@ const Navbar = () => {
                         <>
                             <div className="user-info" onClick={handleProfileClick} style={{ cursor: 'pointer' }}>
                                 <img
-                                    src={currentUser.photoURL || `https://ui-avatars.com/api/?name=${encodeURIComponent(currentUser.displayName || currentUser.email)}&background=667eea&color=fff`}
+                                    src={userProfile?.avatar || currentUser.photoURL || `https://ui-avatars.com/api/?name=${encodeURIComponent(currentUser.displayName || currentUser.email)}&background=667eea&color=fff`}
                                     alt={currentUser.displayName || currentUser.email}
                                     className="avatar avatar-sm"
                                 />

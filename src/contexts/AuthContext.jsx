@@ -36,6 +36,18 @@ export const AuthProvider = ({ children }) => {
 
                 // Criar/atualizar perfil no backend
                 try {
+                    // Primeiro, buscar o perfil existente
+                    const profileResponse = await fetch(`${API_URL}/auth/me`, {
+                        headers: {
+                            'Authorization': `Bearer ${token}`
+                        }
+                    });
+
+                    const existingProfile = profileResponse.ok ? await profileResponse.json() : null;
+
+                    // Só atualizar o avatar se o usuário não tiver um avatar customizado
+                    const shouldUpdateAvatar = !existingProfile?.avatar || existingProfile.avatar === '';
+
                     await fetch(`${API_URL}/auth/profile`, {
                         method: 'POST',
                         headers: {
@@ -44,7 +56,8 @@ export const AuthProvider = ({ children }) => {
                         },
                         body: JSON.stringify({
                             displayName: user.displayName || user.email,
-                            avatar: user.photoURL || ''
+                            // Só enviar photoURL se não houver avatar customizado
+                            avatar: shouldUpdateAvatar ? (user.photoURL || '') : existingProfile.avatar
                         })
                     });
                 } catch (error) {
