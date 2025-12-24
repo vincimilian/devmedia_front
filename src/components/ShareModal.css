@@ -1,0 +1,237 @@
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    backdrop-filter: blur(4px);
+}
+
+.modal-content {
+    width: 90%;
+    max-width: 500px;
+    max-height: 90vh;
+    overflow-y: auto;
+    animation: modalSlideIn 0.3s ease-out;
+}
+
+@keyframes modalSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-xl);
+    padding-bottom: var(--spacing-lg);
+    border-bottom: 1px solid rgba(163, 177, 198, 0.2);
+}
+
+.modal-header h2 {
+    margin: 0;
+    font-size: 1.5rem;
+    color: var(--text-primary);
+}
+
+.btn-close {
+    background: var(--bg-primary);
+    border: none;
+    width: 36px;
+    height: 36px;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-secondary);
+    box-shadow: var(--shadow-neu-sm);
+    transition: all var(--transition-normal);
+}
+
+.btn-close:hover {
+    box-shadow: var(--shadow-neu-md);
+    color: var(--text-primary);
+}
+
+.share-preview {
+    padding: var(--spacing-lg);
+    border-radius: var(--radius-md);
+    background: var(--bg-secondary);
+    box-shadow: var(--shadow-neu-inset);
+    margin-bottom: var(--spacing-xl);
+}
+
+.preview-author {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.preview-content {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+.share-options {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+}
+
+.share-option {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-md);
+}
+
+.share-network {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.share-network .btn {
+    width: 100%;
+}
+
+.user-select-container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+    padding: var(--spacing-lg);
+    background: var(--bg-secondary);
+    border-radius: var(--radius-md);
+    margin-top: var(--spacing-md);
+}
+
+.users-list {
+    max-height: 200px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+}
+
+.user-item {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    padding: var(--spacing-md);
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: all var(--transition-normal);
+}
+
+.user-item:hover {
+    background: var(--bg-primary);
+    box-shadow: var(--shadow-neu-sm);
+}
+
+.user-item.selected {
+    background: var(--accent-gradient);
+    color: white;
+    box-shadow: var(--shadow-neu-md);
+}
+
+.user-item.selected .user-name {
+    color: white;
+}
+
+.user-name {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    font-weight: 500;
+}
+
+.following-badge {
+    font-size: 0.7rem;
+    padding: 2px 8px;
+    background: rgba(102, 126, 234, 0.2);
+    border-radius: var(--radius-full);
+    color: var(--accent-primary);
+    font-weight: 600;
+}
+
+.user-item.selected .following-badge {
+    background: rgba(255, 255, 255, 0.3);
+    color: white;
+}
+
+.no-users {
+    text-align: center;
+    color: var(--text-secondary);
+    padding: var(--spacing-lg);
+    margin: 0;
+}
+
+.user-select {
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    .modal-content {
+        width: 95%;
+        max-width: 95%;
+        margin: var(--spacing-md);
+        max-height: 90vh;
+        overflow-y: auto;
+    }
+
+    .modal-header h2 {
+        font-size: 1.1rem;
+    }
+
+    .modal-body {
+        padding: var(--spacing-md);
+    }
+
+    .share-preview {
+        padding: var(--spacing-sm);
+    }
+
+    .preview-content {
+        font-size: 0.85rem;
+    }
+
+    .share-options {
+        gap: var(--spacing-sm);
+    }
+
+    .share-option {
+        font-size: 0.85rem;
+        padding: var(--spacing-sm) var(--spacing-md);
+    }
+
+    .user-select-container {
+        padding: var(--spacing-md);
+    }
+
+    .users-list {
+        max-height: 150px;
+    }
+
+    .user-item {
+        padding: var(--spacing-sm);
+    }
+}

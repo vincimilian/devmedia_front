@@ -1,0 +1,142 @@
+.comment-section {
+    margin-top: var(--spacing-lg);
+    padding-top: var(--spacing-lg);
+    border-top: 1px solid rgba(163, 177, 198, 0.2);
+}
+
+.comment-form {
+    display: flex;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+}
+
+.comment-input {
+    flex: 1;
+}
+
+.btn-comment {
+    width: 48px;
+    height: 48px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-md);
+}
+
+.btn-comment:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.comments-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.comment-item {
+    display: flex;
+    gap: var(--spacing-md);
+    padding: var(--spacing-md);
+    border-radius: var(--radius-md);
+    background: var(--bg-secondary);
+    box-shadow: var(--shadow-neu-sm);
+    position: relative;
+    transition: all var(--transition-normal);
+}
+
+.comment-item:hover {
+    box-shadow: var(--shadow-neu-md);
+}
+
+.comment-content {
+    flex: 1;
+}
+
+.comment-header {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-xs);
+}
+
+.comment-author {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--text-primary);
+}
+
+.comment-time {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+}
+
+.comment-text {
+    font-size: 0.9rem;
+    color: var(--text-primary);
+    margin: 0;
+    line-height: 1.5;
+}
+
+.btn-delete-comment {
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    cursor: pointer;
+    padding: var(--spacing-xs);
+    border-radius: var(--radius-sm);
+    transition: all var(--transition-fast);
+    opacity: 0;
+}
+
+.comment-item:hover .btn-delete-comment {
+    opacity: 1;
+}
+
+.btn-delete-comment:hover {
+    color: var(--danger);
+    background: rgba(245, 101, 101, 0.1);
+}
+
+@media (max-width: 768px) {
+    .comment-section {
+        padding: var(--spacing-md);
+    }
+
+    .comment-form {
+        gap: var(--spacing-sm);
+    }
+
+    .comment-input {
+        font-size: 0.85rem;
+        padding: var(--spacing-sm);
+    }
+
+    .btn-comment {
+        padding: var(--spacing-sm) var(--spacing-md);
+        font-size: 0.85rem;
+    }
+
+    .comment-item {
+        padding: var(--spacing-sm);
+        gap: var(--spacing-sm);
+    }
+
+    .comment-avatar {
+        width: 28px;
+        height: 28px;
+    }
+
+    .comment-author {
+        font-size: 0.85rem;
+    }
+
+    .comment-text {
+        font-size: 0.85rem;
+    }
+
+    .comment-time {
+        font-size: 0.7rem;
+    }
+}
