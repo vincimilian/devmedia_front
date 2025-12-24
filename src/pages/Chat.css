@@ -14,6 +14,8 @@
     border-right: 1px solid rgba(163, 177, 198, 0.2);
     display: flex;
     flex-direction: column;
+    min-height: 0;
+    overflow: hidden;
 }
 
 .chat-title {
@@ -165,6 +167,8 @@
 .chat-main {
     display: flex;
     flex-direction: column;
+    min-height: 0;
+    overflow: hidden;
 }
 
 .chat-header {
