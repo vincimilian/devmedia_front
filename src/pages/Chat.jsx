@@ -29,7 +29,10 @@ const Chat = () => {
     }, [messages]);
 
     const scrollToBottom = () => {
-        messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+        if (messagesEndRef.current) {
+            const container = messagesEndRef.current.parentElement;
+            container.scrollTop = container.scrollHeight;
+        }
     };
 
     const fetchConversations = async () => {
@@ -126,7 +129,7 @@ const Chat = () => {
             <Navbar />
 
             <div className="container">
-                <div className="chat-container card">
+                <div className="chat-container">
                     <div className="chat-sidebar">
                         <h2 className="chat-title">Mensagens</h2>
                         <div className="conversations-list">

@@ -34,7 +34,7 @@
     flex: 1;
     min-height: 0;
     /* Crucial */
-    background: var(--bg-surface);
+    background: var(--bg-primary);
     border-radius: var(--radius-lg);
     border: 1px solid rgba(163, 177, 198, 0.2);
     overflow: hidden;
@@ -50,7 +50,7 @@
     display: flex;
     flex-direction: column;
     border-right: 1px solid rgba(163, 177, 198, 0.2);
-    background: var(--bg-surface);
+    background: var(--bg-primary);
     min-height: 0;
     /* Ensures it respects container height */
 }
@@ -154,7 +154,7 @@
     /* Flexbox nested scrolling fix */
     min-height: 0;
     /* Crucial */
-    background: var(--bg-surface);
+    background: var(--bg-primary);
     position: relative;
 }
 
@@ -167,7 +167,7 @@
     border-bottom: 1px solid rgba(163, 177, 198, 0.2);
     flex-shrink: 0;
     /* Fixed height header */
-    background: var(--bg-surface);
+    background: var(--bg-primary);
     z-index: 10;
 }
 
@@ -327,7 +327,7 @@
     border-top: 1px solid rgba(163, 177, 198, 0.2);
     flex-shrink: 0;
     /* Never shrink input area */
-    background: var(--bg-surface);
+    background: var(--bg-primary);
 }
 
 .message-input {
