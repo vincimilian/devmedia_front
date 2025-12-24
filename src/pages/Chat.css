@@ -6,8 +6,7 @@
 .chat-container {
     display: grid;
     grid-template-columns: 320px 1fr;
-    height: calc(100vh - 200px);
-    max-height: 700px;
+    height: calc(100vh - 140px);
     overflow: hidden;
 }
 
@@ -186,10 +185,13 @@
 .messages-container {
     flex: 1;
     overflow-y: auto;
+    overflow-x: hidden;
     padding: var(--spacing-lg);
     display: flex;
     flex-direction: column;
     gap: var(--spacing-md);
+    scroll-behavior: smooth;
+    min-height: 0;
 }
 
 .message {
