@@ -24,7 +24,8 @@ const Profile = () => {
         skills: '', // String, not array
         github: '',
         linkedin: '',
-        website: ''
+        website: '',
+        emailNotifications: true
     });
 
     useEffect(() => {
@@ -47,7 +48,8 @@ const Profile = () => {
                 skills: data.skills?.join(', ') || '',
                 github: data.github || '',
                 linkedin: data.linkedin || '',
-                website: data.website || ''
+                website: data.website || '',
+                emailNotifications: data.emailNotifications !== undefined ? data.emailNotifications : true
             });
         } catch (error) {
             console.error('Erro ao buscar perfil:', error);
@@ -226,6 +228,17 @@ const Profile = () => {
                                         onChange={(e) => setFormData({ ...formData, website: e.target.value })}
                                         placeholder="https://yourwebsite.com"
                                     />
+                                </div>
+
+                                <div className="form-group checkbox-group">
+                                    <label className="checkbox-label">
+                                        <input
+                                            type="checkbox"
+                                            checked={formData.emailNotifications}
+                                            onChange={(e) => setFormData({ ...formData, emailNotifications: e.target.checked })}
+                                        />
+                                        Receber notificações por email
+                                    </label>
                                 </div>
 
                                 <button type="submit" className="btn btn-primary">
