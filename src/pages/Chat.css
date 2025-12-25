@@ -8,9 +8,13 @@
     /* Prevent body scroll */
 }
 
-/* Ensure navbar doesn't shrink */
-.chat-page nav {
+/* Ensure navbar doesn't shrink and is compact */
+.chat-page .navbar {
     flex-shrink: 0;
+    padding: var(--spacing-sm) 0;
+    /* Compact padding */
+    margin-bottom: 0;
+    /* Remove gap */
 }
 
 /* Overriding global container for this page to allow full height */
