@@ -14,176 +14,28 @@
 }
 
 /* Overriding global container for this page to allow full height */
+/* Overriding global container for this page to allow full height */
 .chat-page .container {
     flex: 1;
     display: flex;
     flex-direction: column;
     min-height: 0;
-    /* Crucial for nested flex scrolling */
-    padding-bottom: var(--spacing-md);
+    padding-bottom: 0;
+    /* Remove padding that might cause overflow */
     max-width: 1400px;
-    /* Optional: Keep it constrained horizontally if desired, or remove */
     width: 100%;
     margin: 0 auto;
 }
 
-/* Main Card Container */
-.chat-container {
-    display: flex;
-    /* Using flex instead of grid for explicit control */
-    flex: 1;
-    min-height: 0;
-    /* Crucial */
-    background: var(--bg-primary);
-    border-radius: var(--radius-lg);
-    border: 1px solid rgba(163, 177, 198, 0.2);
-    overflow: hidden;
-    /* Contains the children */
-    box-shadow: var(--shadow-neu-sm);
-}
-
-/* =========================================
-   Sidebar Area
-   ========================================= */
-.chat-sidebar {
-    width: 320px;
-    display: flex;
-    flex-direction: column;
-    border-right: 1px solid rgba(163, 177, 198, 0.2);
-    background: var(--bg-primary);
-    min-height: 0;
-    /* Ensures it respects container height */
-}
-
-.chat-title {
-    padding: var(--spacing-lg);
-    margin: 0;
-    font-size: 1.5rem;
-    font-weight: 800;
-    background: var(--accent-gradient);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    border-bottom: 1px solid rgba(163, 177, 198, 0.2);
-    flex-shrink: 0;
-    /* Don't shrink header */
-}
-
-.conversations-list {
-    flex: 1;
-    /* Take remaining space */
-    overflow-y: auto;
-    /* Scrollable area */
-    display: flex;
-    flex-direction: column;
-}
-
-.empty-conversations {
-    padding: var(--spacing-2xl);
-    text-align: center;
-    color: var(--text-secondary);
-}
-
-.conversation-item {
-    display: flex;
-    align-items: center;
-    gap: var(--spacing-md);
-    padding: var(--spacing-lg);
-    cursor: pointer;
-    transition: all var(--transition-normal);
-    position: relative;
-    border-bottom: 1px solid rgba(163, 177, 198, 0.1);
-    flex-shrink: 0;
-    /* Prevent items from squishing */
-}
-
-.conversation-item:hover {
-    background: var(--bg-secondary);
-}
-
-.conversation-item.active {
-    background: var(--bg-secondary);
-    box-shadow: var(--shadow-neu-inset);
-}
-
-.conversation-info {
-    flex: 1;
-    min-width: 0;
-    /* Text truncation fix */
-}
-
-.conversation-info h4 {
-    margin: 0 0 var(--spacing-xs) 0;
-    font-size: 0.95rem;
-    font-weight: 600;
-    color: var(--text-primary);
-}
-
-.conversation-info p {
-    margin: 0;
-    font-size: 0.85rem;
-    color: var(--text-secondary);
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-.conversation-info .message-time {
-    display: block;
-    font-size: 0.7rem;
-    color: var(--text-secondary);
-    margin-top: var(--spacing-xs);
-}
-
-.unread-badge {
-    width: 10px;
-    height: 10px;
-    border-radius: var(--radius-full);
-    background: var(--accent-primary);
-    flex-shrink: 0;
-}
-
-/* =========================================
-   Main Chat Area
-   ========================================= */
-.chat-main {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    min-width: 0;
-    /* Flexbox nested scrolling fix */
-    min-height: 0;
-    /* Crucial */
-    background: var(--bg-primary);
-    position: relative;
-}
-
-/* Chat Header */
-.chat-header {
-    display: flex;
-    align-items: center;
-    gap: var(--spacing-md);
-    padding: var(--spacing-lg);
-    border-bottom: 1px solid rgba(163, 177, 198, 0.2);
-    flex-shrink: 0;
-    /* Fixed height header */
-    background: var(--bg-primary);
-    z-index: 10;
-}
-
-.chat-header h3 {
-    margin: 0;
-    font-size: 1.1rem;
-    font-weight: 700;
-    color: var(--text-primary);
-}
+/* ... skipped ... */
 
 /* Messages Area */
 .messages-container {
-    flex: 1;
-    /* Take all remaining vertical space */
+    height: 0;
+    /* Force basis to 0, preventing content expansion */
+    flex: 1 1 0%;
+    /* Redundant but safe: grow 1, shrink 1, basis 0% */
     overflow-y: auto;
-    /* Scroll ONLY this area */
     overflow-x: hidden;
     padding: var(--spacing-lg);
     display: flex;
